@@ -6,7 +6,7 @@ from PyQt4 import *
 from mainGui import Ui_mainWindow
 from __builtin__ import str, int
 from subprocess import Popen
-
+from basicGraph import *
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -42,6 +42,8 @@ class AppGui(QtGui.QMainWindow,Ui_mainWindow):
         strData = item.data(0).toPyObject()
         #self.treeMedia.currentIndex()
         print('' + str(strData))
+        #data = QtCore.QString(strData)
+        drawStockGraph(str(strData))
 
 app = QtGui.QApplication(sys.argv)
 
