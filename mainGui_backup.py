@@ -38,26 +38,48 @@ class Ui_mainWindow(object):
         self.model.setRootPath('C:\Zerodha\Pi\Exported')
 
         self.treeView = QtGui.QTreeView(self.centralwidget)
-        self.treeView.setGeometry(QtCore.QRect(40, 60, 250, 441))
+        self.treeView.setGeometry(QtCore.QRect(30, 90, 191, 411))
         self.treeView.setObjectName(_fromUtf8("treeView"))
         self.treeView.setModel(self.model)
         self.treeView.setRootIndex(self.model.index("C:\Zerodha\Pi\Exported"))
         #end tree view
 
-        self.layoutWidget = QtGui.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(30, 20, 621, 41))
-        self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
-        self.horizontalLayout = QtGui.QHBoxLayout(self.layoutWidget)
+
+        self.widget = QtGui.QWidget(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(30, 20, 611, 55))
+        self.widget.setObjectName(_fromUtf8("widget"))
+        self.verticalLayout = QtGui.QVBoxLayout(self.widget)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-        self.label = QtGui.QLabel(self.layoutWidget)
+        self.label = QtGui.QLabel(self.widget)
         self.label.setObjectName(_fromUtf8("label"))
         self.horizontalLayout.addWidget(self.label)
-        self.lineEdit = QtGui.QLineEdit(self.layoutWidget)
+        self.lineEdit = QtGui.QLineEdit(self.widget)
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
         self.horizontalLayout.addWidget(self.lineEdit)
-        self.enter = QtGui.QPushButton(self.layoutWidget)
+        self.enter = QtGui.QPushButton(self.widget)
         self.enter.setObjectName(_fromUtf8("enter"))
         self.horizontalLayout.addWidget(self.enter)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.horizontalLayout_2 = QtGui.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
+        self.comboBox = QtGui.QComboBox(self.widget)
+        self.comboBox.setObjectName(_fromUtf8("comboBox"))
+        self.comboBox.addItem(_fromUtf8(""))
+        self.comboBox.addItem(_fromUtf8(""))
+        self.comboBox.addItem(_fromUtf8(""))
+
+        self.horizontalLayout_2.addWidget(self.comboBox)
+        self.candleStick = QtGui.QRadioButton(self.widget)
+        self.candleStick.setObjectName(_fromUtf8("candleStick"))
+        self.horizontalLayout_2.addWidget(self.candleStick)
+
+        self.lineChart = QtGui.QRadioButton(self.widget)
+        self.lineChart.setObjectName(_fromUtf8("lineChart"))
+        self.horizontalLayout_2.addWidget(self.lineChart)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+
         mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(mainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 681, 21))
@@ -65,12 +87,18 @@ class Ui_mainWindow(object):
         mainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(mainWindow)
+        QtCore.QObject.connect(self.candleStick, QtCore.SIGNAL(_fromUtf8("toggled(bool)")), self.lineEdit.selectAll)
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
 
     def retranslateUi(self, mainWindow):
         mainWindow.setWindowTitle(_translate("mainWindow", "Friend - Application of Financial  Market", None))
         self.label.setText(_translate("mainWindow", "Enter Stock Name", None))
         self.enter.setText(_translate("mainWindow", "Enter", None))
+        self.comboBox.setItemText(0, _translate("mainWindow", "Select Date", None))
+        self.comboBox.setItemText(1, _translate("mainWindow", "%d-%m-%Y %H:%M:%S", None))
+        self.comboBox.setItemText(2, _translate("mainWindow", "%d-%m-%Y %H:%M", None))
+        self.candleStick.setText(_translate("mainWindow", "Candle Stick", None))
+        self.lineChart.setText(_translate("mainWindow", "Line Chart", None))
 
 
 if __name__ == "__main__":

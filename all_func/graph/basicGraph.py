@@ -13,21 +13,19 @@ from mpl_finance import candlestick_ohlc
 matplotlib.rcParams.update({'font.size':19})
 
 
-stockName='PVR','RUSHIL'
+stockName=[]
 
-def drawStockGraph(stock):
+def drawStockGraph(stock,date):
     try:
         #stockFile = 'C:/Zerodha/Pi/Exported/'+ stock
         stockFile = cbook.get_sample_data('C:/Zerodha/Pi/Exported/'+ stock , asfileobj=False)
         print('loading', stockFile)
-        print('loading', stockFile)
         date, open, high , low, close, volume = np.loadtxt(stockFile,delimiter=',',
-                                                          converters={0:bytespdate2num('%d-%m-%Y %H:%M:%S')},
-                                                           skiprows=1,unpack=True)
+                                                          converters={0:bytespdate2num(date)},
+                                                           skiprows=2,unpack=True)
 
         #bytespdate2num('%d-%b-%y')},skiprows=1, usecols=(0, 2), unpack=True
         #  mdates.strpdate2num('%d-%m-%Y %H:%M:%S')}
-
         fig = plt.figure()
         ax1 = plt.subplot(1,1,1)
         ax1.plot(date,close)

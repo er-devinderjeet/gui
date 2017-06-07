@@ -21,9 +21,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>60</y>
+      <y>90</y>
       <width>191</width>
-      <height>441</height>
+      <height>411</height>
      </rect>
     </property>
    </widget>
@@ -32,25 +32,92 @@
      <rect>
       <x>30</x>
       <y>20</y>
-      <width>621</width>
-      <height>41</height>
+      <width>611</width>
+      <height>71</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="label">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Enter Stock Name</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="enter">
+         <property name="text">
+          <string>Enter</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QComboBox" name="comboBox">
+         <item>
+          <property name="text">
+           <string>Select Date</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>d-m-Y H:M:S</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>d-m-Y H:M</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="candleStick">
+         <property name="text">
+          <string>Candle Stick</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="lineChart">
+         <property name="text">
+          <string>Line Chart</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>100</y>
+      <width>411</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QPushButton" name="autoCalculation">
        <property name="text">
-        <string>Enter Stock Name</string>
+        <string>Auto-Calculation</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="enter">
+      <widget class="QPushButton" name="stopAutoCalculation">
        <property name="text">
-        <string>Enter</string>
+        <string>Stop Auto-Calculation </string>
        </property>
       </widget>
      </item>
@@ -69,5 +136,22 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>candleStick</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEdit</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>272</x>
+     <y>91</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>345</x>
+     <y>60</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
