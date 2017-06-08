@@ -17,6 +17,8 @@ from matplotlib.dates import bytespdate2num
 from ..stats import centralTendency
 from rsi import *
 import statsmodels.api as sm
+from statsmodels import regression
+
 
 
 
@@ -26,6 +28,7 @@ stockName = 'PVR'
 class graphing:
     def calculateCT(self,stock,guiDate):
         try:
+
             stockFile = cbook.get_sample_data('C:/Zerodha/Pi/Exported/'+ stock, asfileobj=False)
             print('loading', stockFile)
             date, openp, highp , lowp, closep, volume = np.loadtxt(stockFile,delimiter=',',skiprows=2,unpack=True,usecols=(0,1,2,3,4,5),
@@ -56,40 +59,35 @@ class graphing:
                                                           converters={0: bytespdate2num('%d-%m-%Y %H:%M')})
 
 
-            fig, ax = plt.subplots(figsize=(8, 4))
-            #fig = sm.graphics.plot_fit(results, 0, ax=ax)
+            alpha, beta = self.linreg(closep_x,closep_y)
+            print 'alpha: ' + str(alpha)
+            print 'beta: ' + str(beta)
 
+            X2 = np.linspace(closep_x.min(), closep_x.max(), 20)
+            Y_hat = X2 * beta + alpha
 
-            ax.scatter(closep_x,closep_y, alpha=0.5, color='orchid')
-            fig.suptitle('OLS')
-            fig.tight_layout(pad=2)
-            ax.grid(True)
+            plt.scatter(closep_x,closep_y, alpha=0.3)
 
-            #x = np.array(closep_x).T
-            x = sm.add_constant(closep_x)
-            model = sm.OLS(endog=closep_y, exog=x)
-            results = model.fit()
-            print results.summary()
-
-            x_pred = np.linspace(x.min(), x.max(), 50)
-
-            x_pred2 = sm.add_constant(x_pred)
-
-
-            y_pred = results.predict(x_pred2)
-            print y_pred
-
-            ax.plot(x_pred, y_pred, '-', color='darkorchid', linewidth=2)
-            '''
-            ax.set_ylabel("Stock PRice")
-            ax.set_xlabel("Indice")
-            '''
+            plt.ylabel("Stock PRice")
+            plt.xlabel("Indice")
+             # Add the regression line, colored in red
+            plt.plot(X2, Y_hat, 'r', alpha=0.9);
             plt.show()
 
         except Exception,e:
             print str(e)
 
-    def candlestickChart(stock,date,openp,highp,lowp,closep,volume):
+    def linreg(self,x,y):
+        # We add a constant so that we can also fit an intercept (alpha) to the model
+        # This just adds a column of 1s to our data
+        x = sm.add_constant(x)
+        model = regression.linear_model.OLS(y,x).fit()
+        # Remove the constant now that we're done
+        x = x[:, 1]
+        return model.params[0], model.params[1]
+        return model.summary()
+
+    def candlestickChart(self, stock,date,openp,highp,lowp,closep,volume):
             x = 0
             y = len(date)
             candleAr = []
