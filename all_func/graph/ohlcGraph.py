@@ -7,17 +7,19 @@ import matplotlib.dates as mdates
 import numpy as np
 import matplotlib
 #from matplotlib.finance import candlestick_ohlc
-import mpl_finance as finance
+#import mpl_finance as finance
 matplotlib.rcParams.update({'font.size':9})
 #matplotlib.use('Qt4Agg')
 import datetime as dt
 import pandas as pd
 import matplotlib.cbook as cbook
 from matplotlib.dates import bytespdate2num
-from ..stats import centralTendency
+from ..userstats import centralTendency
 from rsi import *
 import statsmodels.api as sm
 from statsmodels import regression
+from scipy import stats
+from statsmodels.sandbox.regression.predstd import wls_prediction_std
 
 
 
@@ -59,11 +61,14 @@ class graphing:
                                                           converters={0: bytespdate2num('%d-%m-%Y %H:%M')})
 
 
-            alpha, beta = self.linreg(closep_x,closep_y)
+            alpha, beta, N, dfModel,result = self.linreg(closep_x,closep_y)
+
             print 'alpha: ' + str(alpha)
             print 'beta: ' + str(beta)
+            print 'no. of Obsev: ' + str(N)
+            print 'df Model: ' + str(dfModel)
 
-            X2 = np.linspace(closep_x.min(), closep_x.max(), 20)
+            X2 = np.linspace(closep_x.min(), closep_x.max(), N)
             Y_hat = X2 * beta + alpha
 
             plt.scatter(closep_x,closep_y, alpha=0.3)
@@ -71,7 +76,24 @@ class graphing:
             plt.ylabel("Stock PRice")
             plt.xlabel("Indice")
              # Add the regression line, colored in red
-            plt.plot(X2, Y_hat, 'r', alpha=0.9);
+            plt.plot(X2, Y_hat, 'r', alpha=0.9)
+
+            X3 = sm.add_constant(X2)
+            y_err = closep_y - Y_hat
+            mean_x = closep_x.T[1].mean()
+            dof = N - dfModel - 1
+            t = stats.t.ppf(1-0.025, df=dof)
+            s_err = np.sum(np.power(y_err, 2))
+            conf = t * np.sqrt((s_err/(N-2))*(1.0/N + (np.power((X2-mean_x),2) /
+                ((np.sum(np.power(X2,2))) - N*(np.power(mean_x,2))))))
+            upper = Y_hat + abs(conf)
+            lower = Y_hat - abs(conf)
+
+            plt.fill_between(X2, lower, upper, color='#888888', alpha=0.8)
+            sdev, outter_lower, outter_upper = wls_prediction_std(result, exog=X3, alpha=0.05)
+            plt.fill_between(X2, outter_lower, outter_upper, color='#888888', alpha=0.1)
+
+            print 'Outter_Lower'+outter_lower
             plt.show()
 
         except Exception,e:
@@ -84,8 +106,11 @@ class graphing:
         model = regression.linear_model.OLS(y,x).fit()
         # Remove the constant now that we're done
         x = x[:, 1]
-        return model.params[0], model.params[1]
-        return model.summary()
+        print model.summary()
+
+        return model.params[0], model.params[1],model.nobs,model.df_model,model
+
+
 
     def candlestickChart(self, stock,date,openp,highp,lowp,closep,volume):
             x = 0

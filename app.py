@@ -9,13 +9,13 @@ from __builtin__ import str, int
 from subprocess import Popen
 #from all_func.graph import  basicGraph
 from all_func.graph import  ohlcGraph
-from all_func.stats import centralTendency
+from all_func.userstats import centralTendency
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
     def _fromUtf8(s):
-        return s
+         return s
 
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8

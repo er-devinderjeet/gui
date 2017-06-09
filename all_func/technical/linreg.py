@@ -26,7 +26,7 @@ import numpy as np
 from scipy import stats
 
 
-# Using scipy.stats.linregress instead of numpy.linalg.lstsq because of this:
+# Using scipy.userstats.linregress instead of numpy.linalg.lstsq because of this:
 # http://stackoverflow.com/questions/20736255/numpy-linalg-lstsq-with-big-values
 def lsreg(x, y):
     x = np.asarray(x)
