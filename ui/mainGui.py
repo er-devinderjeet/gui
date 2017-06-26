@@ -126,6 +126,7 @@ class Ui_mainWindow(object):
         self.comboBox.setItemText(2, _translate("mainWindow", "%d-%m-%Y %H:%M", None))
 
         self.backtestButton.setText(_translate("mainWindow", "Backtest", None))
+        self.backtestButton.setStyleSheet("background-color: #FE3232")
 
 
         #menu

@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>python - Bar Chart with multiple labels - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Bar Chart with multiple labels">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="The following code only shows the main category [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;five&#39;, &#39;six&#39;] as the x axis labels. Is there a way show subcategory [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;] as secondary x axis labels?...">
+    <meta property="og:url" content="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels">
+    <link rel="canonical" href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels">
+
+    
+    
+    <script type="text/javascript" async="" src="https://engine.adzerk.net/ados?t=1498294472477&amp;request={%22Placements%22:[{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1262151663%22,%22AT%22:4,%22Z%22:[43]},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk618477965%22,%22AT%22:4,%22Z%22:[44]},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1677563444%22,%22ATA%22:[5,17,2221,1129,43],%22Z%22:[45]}],%22Keywords%22:%22python%2Cpandas%2Cmatplotlib%2Cplot%22,%22Referrer%22:%22https%3A%2F%2Fwww.google.co.in%2F%22,%22IsAsync%22:true}"></script><script async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/quant.js.download"></script><script async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/beacon.js.download"></script><script async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/analytics.js.download"></script><script type="text/javascript" async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/ados.js.download"></script><script src="./python - Bar Chart with multiple labels - Stack Overflow_files/jquery.min.js.download"></script>
+    <script src="./python - Bar Chart with multiple labels - Stack Overflow_files/stub.en.js.download"></script>
+    <link rel="stylesheet" type="text/css" href="./python - Bar Chart with multiple labels - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Bar Chart with multiple labels&#39;" href="https://stackoverflow.com/feeds/question/43545879">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:43545879});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '43545879');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1498294443,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"7e008840b613998182b7210513aa50db","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true,"ab":{"devstory_onboarding_exp":{"v":"opt_out_of_match_emails","g":2}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"50ab272b55b7","js/moderator.en.js":"6e931caec7a9","js/full-anon.en.js":"2fef363bf2d3","js/full.en.js":"4927e96fa177","js/wmd.en.js":"c7cd3f01ea77","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"9678f60e1dea","js/help.en.js":"dbd4f489eff2","js/tageditor.en.js":"7968c1573954","js/tageditornew.en.js":"c4d010519bcd","js/inline-tag-editing.en.js":"a4fa53d308ae","js/revisions.en.js":"cf90cfea0ccf","js/review.en.js":"2a38cb38679c","js/tagsuggestions.en.js":"97867e3c2def","js/post-validation.en.js":"cbd804f3edaf","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"35dcb223a374","js/keyboard-shortcuts.en.js":"9978772c2295","js/external-editor.en.js":"b46c950d6c5a","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"b46c950d6c5a","js/snippet-javascript.en.js":"72f8bd5f8a20","js/snippet-javascript-codemirror.en.js":"eba3ee02b5bf"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css">&lt;style type="text/css"&gt;body,.so-header{margin-top:1.9em}&lt;/style&gt;</noscript>
+<script async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/full-anon.en.js.download"></script><script async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/snippet-javascript.en.js.download"></script><script async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/post-validation.en.js.download"></script><script async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/prettify-full.en.js.download"></script><script async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/external-editor.en.js.download"></script><script type="text/javascript" src="./python - Bar Chart with multiple labels - Stack Overflow_files/adFeedback.js.download"></script><link rel="stylesheet" href="./python - Bar Chart with multiple labels - Stack Overflow_files/adFeedback.css"><link rel="stylesheet" href="./python - Bar Chart with multiple labels - Stack Overflow_files/jobs-multi.min.css" type="text/css"></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="https://stackoverflow.com/" class="-logo js-gps-track " data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Developer Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="https://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="https://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+                <form id="search" action="https://stackoverflow.com/search" method="get" class="searchbar" autocomplete="off" role="search">
+                    <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    <input name="q" type="text" placeholder="Search..." value="" tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field">
+                    <button type="submit" class="btn js-search-submit">
+                        <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    </button>
+                </form>
+
+        </div>
+        
+
+
+    
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f43545879%2fbar-chart-with-multiple-labels" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+
+
+    <li class="-item"><a href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels#" class="-link js-help-button" title="Help Center and other resources">
+        <svg role="icon" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16.001A8 8 0 0 0 9 1zm.812 12.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 169 Stack Exchange sites">
+            <svg role="icon" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13a2 2 0 0 0 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f43545879%2fbar-chart-with-multiple-labels" class="login-link btn-clear" rel="nofollow">Log In</a>
+                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+<div id="herobox" class="alternate">
+    <div class="test"></div>
+        <div id="close">
+            <a title="click to minimize"><span>x</span> Dismiss</a>
+        </div>
+    <div class="content">
+        <b>Join the Stack Overflow Community</b>
+        <div class="separator"></div>
+        <div class="blurb">
+            Stack Overflow is a community of 7.3 million programmers, just like you, helping each other.
+                <br>
+Join them; it only takes a minute:                <br>
+        </div>
+        <a href="https://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" id="tell-me-more" class="button">Sign up</a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels" class="question-hyperlink">Bar Chart with multiple labels</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="https://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="43545879" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1262151663",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1262151663"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="43545879">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">12</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels#">favorite</a>
+        <div class="favoritecount"><b>2</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>The following code only shows the main category ['one', 'two', 'three', 'four', 'five', 'six'] as the x axis labels. Is there a way show subcategory ['A', 'B', 'C', 'D'] as secondary x axis labels?
+<a href="./python - Bar Chart with multiple labels - Stack Overflow_files/du1my.png" rel="noreferrer"><img src="./python - Bar Chart with multiple labels - Stack Overflow_files/du1my.png" alt="enter image description here"></a></p>
+
+<pre class="lang-py prettyprint prettyprinted"><code><span class="pln">df </span><span class="pun">=</span><span class="pln"> pd</span><span class="pun">.</span><span class="typ">DataFrame</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">random</span><span class="pun">.</span><span class="pln">rand</span><span class="pun">(</span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">),</span><span class="pln">
+                 index</span><span class="pun">=[</span><span class="str">'one'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'two'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'three'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'four'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'five'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'six'</span><span class="pun">],</span><span class="pln">
+                 columns</span><span class="pun">=</span><span class="pln">pd</span><span class="pun">.</span><span class="typ">Index</span><span class="pun">([</span><span class="str">'A'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'B'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'C'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'D'</span><span class="pun">],</span><span class="pln"> 
+                 name</span><span class="pun">=</span><span class="str">'Genus'</span><span class="pun">)).</span><span class="pln">round</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+
+
+df</span><span class="pun">.</span><span class="pln">plot</span><span class="pun">(</span><span class="pln">kind</span><span class="pun">=</span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">figsize</span><span class="pun">=(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">4</span><span class="pun">))</span></code></pre>
+    </div>
+    <div class="post-taglist">
+        <a href="https://stackoverflow.com/questions/tagged/python" class="post-tag js-gps-track" title="show questions tagged &#39;python&#39;" rel="tag">python</a> <a href="https://stackoverflow.com/questions/tagged/pandas" class="post-tag js-gps-track" title="show questions tagged &#39;pandas&#39;" rel="tag">pandas</a> <a href="https://stackoverflow.com/questions/tagged/matplotlib" class="post-tag js-gps-track" title="show questions tagged &#39;matplotlib&#39;" rel="tag">matplotlib</a> <a href="https://stackoverflow.com/questions/tagged/plot" class="post-tag js-gps-track" title="show questions tagged &#39;plot&#39;" rel="tag">plot</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/q/43545879" title="short permalink to this question" class="short-link" id="link-post-43545879">share</a></div>        
+    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2017-04-21 14:56:22Z" class="relativetime">Apr 21 at 14:56</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/4642234/meng"><div class="gravatar-wrapper-32"><img src="./python - Bar Chart with multiple labels - Stack Overflow_files/fccc583cc313ff1f82932a3df5afda9e" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/4642234/meng">Meng</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">152</span><span title="8 bronze badges"><span class="badge3"></span><span class="badgecount">8</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-43545879" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-74146215" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I can think of two options: 1. Create an ad-hoc secondary x-axis below the primary one (see <a href="http://stackoverflow.com/questions/31803817/how-to-add-second-x-axis-at-the-bottom-of-the-first-one-in-matplotlib">this</a>) ; 2. You start with <code>df.unstack().plot.bar()</code> and you change the figure attributes afterwards.</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/5497294/vincep" title="358 reputation" class="comment-user">VinceP</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels#comment74146215_43545879"><span title="2017-04-21 15:55:05Z" class="relativetime-clean">Apr 21 at 15:55</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-43545879" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								2 Answers
+                                <span style="display:none;" itemprop="answerCount">2</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="43547088"></a>
+<div id="answer-43547088" class="answer accepted-answer" data-answerid="43547088" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="43547088">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">7</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Here a possible solution (I had quite a lot of fun!):</p>
+
+<pre class="lang-py prettyprint prettyprinted"><code><span class="pln">df </span><span class="pun">=</span><span class="pln"> pd</span><span class="pun">.</span><span class="typ">DataFrame</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">random</span><span class="pun">.</span><span class="pln">rand</span><span class="pun">(</span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">),</span><span class="pln">
+                 index</span><span class="pun">=[</span><span class="str">'one'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'two'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'three'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'four'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'five'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'six'</span><span class="pun">],</span><span class="pln">
+                 columns</span><span class="pun">=</span><span class="pln">pd</span><span class="pun">.</span><span class="typ">Index</span><span class="pun">([</span><span class="str">'A'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'B'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'C'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'D'</span><span class="pun">],</span><span class="pln">
+                 name</span><span class="pun">=</span><span class="str">'Genus'</span><span class="pun">)).</span><span class="pln">round</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+
+ax </span><span class="pun">=</span><span class="pln"> df</span><span class="pun">.</span><span class="pln">plot</span><span class="pun">(</span><span class="pln">kind</span><span class="pun">=</span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">figsize</span><span class="pun">=(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">4</span><span class="pun">),</span><span class="pln"> rot </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># "Activate" minor ticks</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">minorticks_on</span><span class="pun">()</span><span class="pln">
+
+</span><span class="com"># Get location of the center of each rectangle</span><span class="pln">
+rects_locs </span><span class="pun">=</span><span class="pln"> map</span><span class="pun">(</span><span class="kwd">lambda</span><span class="pln"> x</span><span class="pun">:</span><span class="pln"> x</span><span class="pun">.</span><span class="pln">get_x</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln">x</span><span class="pun">.</span><span class="pln">get_width</span><span class="pun">()/</span><span class="lit">2.</span><span class="pun">,</span><span class="pln"> ax</span><span class="pun">.</span><span class="pln">patches</span><span class="pun">)</span><span class="pln">
+</span><span class="com"># Set minor ticks there</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_xticks</span><span class="pun">(</span><span class="pln">rects_locs</span><span class="pun">,</span><span class="pln"> minor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">True</span><span class="pun">)</span><span class="pln">
+
+
+</span><span class="com"># Labels for the rectangles</span><span class="pln">
+new_ticks </span><span class="pun">=</span><span class="pln"> reduce</span><span class="pun">(</span><span class="kwd">lambda</span><span class="pln"> x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">:</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> map</span><span class="pun">(</span><span class="kwd">lambda</span><span class="pln"> x</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">x</span><span class="pun">]</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> df</span><span class="pun">.</span><span class="pln">shape</span><span class="pun">[</span><span class="lit">0</span><span class="pun">],</span><span class="pln"> df</span><span class="pun">.</span><span class="pln">columns</span><span class="pun">.</span><span class="pln">tolist</span><span class="pun">()))</span><span class="pln">
+</span><span class="com"># Set the labels</span><span class="pln">
+</span><span class="kwd">from</span><span class="pln"> matplotlib </span><span class="kwd">import</span><span class="pln"> ticker
+ax</span><span class="pun">.</span><span class="pln">xaxis</span><span class="pun">.</span><span class="pln">set_minor_formatter</span><span class="pun">(</span><span class="pln">ticker</span><span class="pun">.</span><span class="typ">FixedFormatter</span><span class="pun">(</span><span class="pln">new_ticks</span><span class="pun">))</span><span class="pln">  </span><span class="com">#add the custom ticks</span><span class="pln">
+
+</span><span class="com"># Move the category label further from x-axis</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">tick_params</span><span class="pun">(</span><span class="pln">axis</span><span class="pun">=</span><span class="str">'x'</span><span class="pun">,</span><span class="pln"> which</span><span class="pun">=</span><span class="str">'major'</span><span class="pun">,</span><span class="pln"> pad</span><span class="pun">=</span><span class="lit">15</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># Remove minor ticks where not necessary</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">tick_params</span><span class="pun">(</span><span class="pln">axis</span><span class="pun">=</span><span class="str">'x'</span><span class="pun">,</span><span class="pln">which</span><span class="pun">=</span><span class="str">'both'</span><span class="pun">,</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'off'</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">tick_params</span><span class="pun">(</span><span class="pln">axis</span><span class="pun">=</span><span class="str">'y'</span><span class="pun">,</span><span class="pln">which</span><span class="pun">=</span><span class="str">'both'</span><span class="pun">,</span><span class="pln"> left</span><span class="pun">=</span><span class="str">'off'</span><span class="pun">,</span><span class="pln"> right </span><span class="pun">=</span><span class="pln"> </span><span class="str">'off'</span><span class="pun">)</span></code></pre>
+
+<p>Here's what I get:</p>
+
+<p><a href="./python - Bar Chart with multiple labels - Stack Overflow_files/yCK4h.png" rel="noreferrer"><img src="./python - Bar Chart with multiple labels - Stack Overflow_files/yCK4h.png" alt="enter image description here"></a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/43547088" title="short permalink to this answer" class="short-link" id="link-post-43547088">share</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/43547088/revisions" title="show all edits to this post">edited <span title="2017-04-21 15:59:16Z" class="relativetime">Apr 21 at 15:59</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2017-04-21 15:54:14Z" class="relativetime">Apr 21 at 15:54</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/6108661/flab"><div class="gravatar-wrapper-32"><img src="./python - Bar Chart with multiple labels - Stack Overflow_files/3b232c9453f6369d6150071ce9f506fc" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/6108661/flab">FLab</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,839</span><span title="2 silver badges"><span class="badge2"></span><span class="badgecount">2</span></span><span title="21 bronze badges"><span class="badge3"></span><span class="badgecount">21</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-43547088" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-43547088" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk618477965",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk618477965"></div>
+  
+<a name="43547282"></a>
+<div id="answer-43547282" class="answer" data-answerid="43547282" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="43547282">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Here is a solution. You can get the positions of the bars and set some minor xticklabels accordingly. </p>
+
+<pre class="lang-py prettyprint prettyprinted"><code><span class="kwd">import</span><span class="pln"> matplotlib</span><span class="pun">.</span><span class="pln">pyplot </span><span class="kwd">as</span><span class="pln"> plt
+</span><span class="kwd">import</span><span class="pln"> numpy </span><span class="kwd">as</span><span class="pln"> np
+</span><span class="kwd">import</span><span class="pln"> pandas </span><span class="kwd">as</span><span class="pln"> pd
+
+df </span><span class="pun">=</span><span class="pln"> pd</span><span class="pun">.</span><span class="typ">DataFrame</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">random</span><span class="pun">.</span><span class="pln">rand</span><span class="pun">(</span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">),</span><span class="pln">
+                 index</span><span class="pun">=[</span><span class="str">'one'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'two'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'three'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'four'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'five'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'six'</span><span class="pun">],</span><span class="pln">
+                 columns</span><span class="pun">=</span><span class="pln">pd</span><span class="pun">.</span><span class="typ">Index</span><span class="pun">([</span><span class="str">'A'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'B'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'C'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'D'</span><span class="pun">],</span><span class="pln"> 
+                 name</span><span class="pun">=</span><span class="str">'Genus'</span><span class="pun">)).</span><span class="pln">round</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+
+
+df</span><span class="pun">.</span><span class="pln">plot</span><span class="pun">(</span><span class="pln">kind</span><span class="pun">=</span><span class="str">'bar'</span><span class="pun">,</span><span class="pln">figsize</span><span class="pun">=(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">4</span><span class="pun">))</span><span class="pln">
+
+ax </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">gca</span><span class="pun">()</span><span class="pln">
+pos </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[]</span><span class="pln">
+</span><span class="kwd">for</span><span class="pln"> bar </span><span class="kwd">in</span><span class="pln"> ax</span><span class="pun">.</span><span class="pln">patches</span><span class="pun">:</span><span class="pln">
+    pos</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">bar</span><span class="pun">.</span><span class="pln">get_x</span><span class="pun">()+</span><span class="pln">bar</span><span class="pun">.</span><span class="pln">get_width</span><span class="pun">()/</span><span class="lit">2.</span><span class="pun">)</span><span class="pln">
+
+
+ax</span><span class="pun">.</span><span class="pln">set_xticks</span><span class="pun">(</span><span class="pln">pos</span><span class="pun">,</span><span class="pln">minor</span><span class="pun">=</span><span class="kwd">True</span><span class="pun">)</span><span class="pln">
+lab </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[]</span><span class="pln">
+</span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">len</span><span class="pun">(</span><span class="pln">pos</span><span class="pun">)):</span><span class="pln">
+    l </span><span class="pun">=</span><span class="pln"> df</span><span class="pun">.</span><span class="pln">columns</span><span class="pun">.</span><span class="pln">values</span><span class="pun">[</span><span class="pln">i</span><span class="pun">//</span><span class="pln">len</span><span class="pun">(</span><span class="pln">df</span><span class="pun">.</span><span class="pln">index</span><span class="pun">.</span><span class="pln">values</span><span class="pun">)]</span><span class="pln">
+    lab</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">l</span><span class="pun">)</span><span class="pln">
+
+ax</span><span class="pun">.</span><span class="pln">set_xticklabels</span><span class="pun">(</span><span class="pln">lab</span><span class="pun">,</span><span class="pln">minor</span><span class="pun">=</span><span class="kwd">True</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">tick_params</span><span class="pun">(</span><span class="pln">axis</span><span class="pun">=</span><span class="str">'x'</span><span class="pun">,</span><span class="pln"> which</span><span class="pun">=</span><span class="str">'major'</span><span class="pun">,</span><span class="pln"> pad</span><span class="pun">=</span><span class="lit">15</span><span class="pun">,</span><span class="pln"> size</span><span class="pun">=</span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+plt</span><span class="pun">.</span><span class="pln">setp</span><span class="pun">(</span><span class="pln">ax</span><span class="pun">.</span><span class="pln">get_xticklabels</span><span class="pun">(),</span><span class="pln"> rotation</span><span class="pun">=</span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+
+plt</span><span class="pun">.</span><span class="pln">show</span><span class="pun">()</span></code></pre>
+
+<p><a href="./python - Bar Chart with multiple labels - Stack Overflow_files/Tl16c.png" rel="noreferrer"><img src="./python - Bar Chart with multiple labels - Stack Overflow_files/Tl16c.png" alt="enter image description here"></a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/43547282" title="short permalink to this answer" class="short-link" id="link-post-43547282">share</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2017-04-21 16:05:07Z" class="relativetime">Apr 21 at 16:05</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/4124317/importanceofbeingernest"><div class="gravatar-wrapper-32"><img src="./python - Bar Chart with multiple labels - Stack Overflow_files/wsHAV.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/4124317/importanceofbeingernest">ImportanceOfBeingErnest</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 33,002" dir="ltr">33k</span><span title="7 gold badges"><span class="badge1"></span><span class="badgecount">7</span></span><span title="20 silver badges"><span class="badge2"></span><span class="badgecount">20</span></span><span title="54 bronze badges"><span class="badge3"></span><span class="badgecount">54</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-43547282" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-43547282" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="https://stackoverflow.com/questions/43545879/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="43545879">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.co.in/">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="7e008840b613998182b7210513aa50db">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="https://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f43545879%2fbar-chart-with-multiple-labels%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                                    
+                                var $window = $(window),
+                                    onScroll = function(e) {
+                                        var $elem = $('.new-login-left'),
+                                            docViewTop = $window.scrollTop(),
+                                            docViewBottom = docViewTop + $window.height(),
+                                            elemTop = $elem.offset().top,
+                                            elemBottom = elemTop + $elem.height();							
+                                        if ((docViewTop < elemTop) && (docViewBottom > elemBottom))  {
+                                            StackExchange.using('gps', function() { StackExchange.gps.track('embedded_signup_form.view', { location: 'question_page' }); });
+                                            $window.unbind('scroll', onScroll);
+                                        }
+                                    };
+                                $window.on('scroll', onScroll);
+                                    
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'https%3a%2f%2fstackoverflow.com%2fquestions%2f43545879%2fbar-chart-with-multiple-labels%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="https://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="https://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/python" class="post-tag" title="show questions tagged &#39;python&#39;" rel="tag">python</a> <a href="https://stackoverflow.com/questions/tagged/pandas" class="post-tag" title="show questions tagged &#39;pandas&#39;" rel="tag">pandas</a> <a href="https://stackoverflow.com/questions/tagged/matplotlib" class="post-tag" title="show questions tagged &#39;matplotlib&#39;" rel="tag">matplotlib</a> <a href="https://stackoverflow.com/questions/tagged/plot" class="post-tag" title="show questions tagged &#39;plot&#39;" rel="tag">plot</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2017-04-21 14:56:22Z"><b>2 months ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+                                    <b>300 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels?lastactivity" class="lastactivity-link" title="2017-04-21 16:05:07Z">2 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1677563444",[5,17,2221,1129,43]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1677563444"><div id="careersadsdoublehigh" style="display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="https://stackoverflow.com/questions/43545879/bar-chart-with-multiple-labels#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="https://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6NSwiYnQiOjAsImNtIjo5MjEsImNoIjoxMTc4LCJjayI6e30sImNyIjoyNjg4LCJkaSI6ImQ3Y2IwMDBkYjY3YTRmZWJiNjlmNDYyOTAzMjBmOWY4IiwiZG0iOjEsImZjIjoyNDg1LCJmbCI6MjY2MywiaXAiOiIxMDMuMjUzLjE0OC4yNDkiLCJrdyI6InB5dGhvbixwYW5kYXMsbWF0cGxvdGxpYixwbG90IiwibnciOjIyLCJwYyI6MCwiZWMiOjAsInByIjo2MTczNywicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvLmluLyIsInNhIjoiMyIsInNiIjoiaS0wNTlkNjEwZjk2ZjRkNGYxMiIsInNwIjoxMTI3MCwic3QiOjgyNzcsInVrIjoidWUxLWQ5YzM5NTM5ZTkzMzQwNTJiZGQ5N2I4YjdmZDY0OWE1Iiwiem4iOjQ1LCJ0cyI6MTQ5ODI5NDQ0NTEyMSwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTY3NzU2MzQ0NCIsImZxIjowfQ&amp;s=llz-1YfgHk3E51MOo13HgQfM9Wk"></div>
+            <div id="hireme" class="tag-themed python tagged tex2jax_ignore clc-jobs-multi"><a class="top " href="https://stackoverflow.com/jobs" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zrmf2nSvV1XPFTfH_HzZGJimf7qoYjiM681Ad4KZtmMH_1uBxwPZOBi6NnAwNBgz8jIwDKb6fdjtlW9nK17BIDiKQcs9t-39OYPtmdkK6gsycjPm800fRL7toMcR5bxg-Xtgi5a9rc4Isl_O8e-qp_zx36I_pCQL5YOlllI8i_esrVP5mj5ywuWb9Hbb3lhhSZcnsFylv0kn9O3fSYpAAA&amp;cr=10439&amp;ct=1&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%3Fmed=clc&amp;sig=xAT5mwIg9zQ0cA"><span>Want a <span class="header-tag">python</span> job?</span></a><div class="middle"><ul class="jobs"><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Python Developer - Build the smartest way to buy a car (Telecommute - full time) at Unhaggle Inc.. Click to learn more." href="https://stackoverflow.com/jobs/129873/python-developer-build-the-smartest-way-to-buy-unhaggle-inc" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zrmf2nSvV1XPFTfH_HzZGJimf7qoYjiM681Ad4KZtmMH_1uBxwPZOBi6NnAwNBgz8jIwDKb6fdjtlW9nK17BIDiKQcs9t-39OYPtmdkK6gsycjPm800fRL7toMcR5bxg-Xtgi5a9rc4Isl_O8e-qp_zx36I_pCQL5YOlllI8i_esrVP5mj5ywuWb9Hbb3lhhSZcnsFylv0kn9O3fSYpAAA&amp;cr=269829&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F129873%2Fpython-developer-build-the-smartest-way-to-buy-unhaggle-inc%3Fmed=clc&amp;sig=bYvH4QkcpfVBbA"><div class="title">Python Developer - Build the smartest way to buy a car (Telecommute - full time)</div><div><span class="company">Unhaggle Inc.</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">python</span><span class="post-tag">django</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zrmf2nSvV1XPFTfH_HzZGJimf7qoYjiM681Ad4KZtmMH_1uBxwPZOBi6NnAwNBgz8jIwDKb6fdjtlW9nK17BIDiKQcs9t-39OYPtmdkK6gsycjPm800fRL7toMcR5bxg-Xtgi5a9rc4Isl_O8e-qp_zx36I_pCQL5YOlllI8i_esrVP5mj5ywuWb9Hbb3lhhSZcnsFylv0kn9O3fSYpAAA&amp;cr=269829&amp;ct=-1&amp;sig=Y10nyhdfnZuQSg" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Excellence in Web Application Development (Senior Frontend Engineer) at Sherpany. Click to learn more." href="https://stackoverflow.com/jobs/135910/excellence-in-web-application-development-senior-sherpany" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zrmf2nSvV1XPFTfH_HzZGJimf7qoYjiM681Ad4KZtmMH_1uBxwPZOBi6NnAwNBgz8jIwDKb6fdjtlW9nK17BIDiKQcs9t-39OYPtmdkK6gsycjPm800fRL7toMcR5bxg-Xtgi5a9rc4Isl_O8e-qp_zx36I_pCQL5YOlllI8i_esrVP5mj5ywuWb9Hbb3lhhSZcnsFylv0kn9O3fSYpAAA&amp;cr=250692&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F135910%2Fexcellence-in-web-application-development-senior-sherpany%3Fmed=clc&amp;sig=66pWWJhG3hiDIQ"><div class="title">Excellence in Web Application Development (Senior Frontend Engineer)</div><div><span class="company">Sherpany</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">python</span><span class="post-tag">css3</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zrmf2nSvV1XPFTfH_HzZGJimf7qoYjiM681Ad4KZtmMH_1uBxwPZOBi6NnAwNBgz8jIwDKb6fdjtlW9nK17BIDiKQcs9t-39OYPtmdkK6gsycjPm800fRL7toMcR5bxg-Xtgi5a9rc4Isl_O8e-qp_zx36I_pCQL5YOlllI8i_esrVP5mj5ywuWb9Hbb3lhhSZcnsFylv0kn9O3fSYpAAA&amp;cr=250692&amp;ct=-1&amp;sig=f7vJT9rTdZaNpg" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="SDET - 100% remote at EdgeLink. Click to learn more." href="https://stackoverflow.com/jobs/146134/sdet-100-remote-edgelink" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zrmf2nSvV1XPFTfH_HzZGJimf7qoYjiM681Ad4KZtmMH_1uBxwPZOBi6NnAwNBgz8jIwDKb6fdjtlW9nK17BIDiKQcs9t-39OYPtmdkK6gsycjPm800fRL7toMcR5bxg-Xtgi5a9rc4Isl_O8e-qp_zx36I_pCQL5YOlllI8i_esrVP5mj5ywuWb9Hbb3lhhSZcnsFylv0kn9O3fSYpAAA&amp;cr=270328&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F146134%2Fsdet-100-remote-edgelink%3Fmed=clc&amp;sig=_3Rw22J50BRweA"><div class="title">SDET - 100% remote</div><div><span class="company">EdgeLink</span><span class="location">No office location</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">python</span><span class="post-tag">javascript</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zrmf2nSvV1XPFTfH_HzZGJimf7qoYjiM681Ad4KZtmMH_1uBxwPZOBi6NnAwNBgz8jIwDKb6fdjtlW9nK17BIDiKQcs9t-39OYPtmdkK6gsycjPm800fRL7toMcR5bxg-Xtgi5a9rc4Isl_O8e-qp_zx36I_pCQL5YOlllI8i_esrVP5mj5ywuWb9Hbb3lhhSZcnsFylv0kn9O3fSYpAAA&amp;cr=270328&amp;ct=-1&amp;sig=-SyJ6XgBKKXq9A" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Software Engineer at Datadog. Click to learn more." href="https://stackoverflow.com/jobs/131360/software-engineer-datadog" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=4zrmf2nSvV1XPFTfH_HzZGJimf7qoYjiM681Ad4KZtmMH_1uBxwPZOBi6NnAwNBgz8jIwDKb6fdjtlW9nK17BIDiKQcs9t-39OYPtmdkK6gsycjPm800fRL7toMcR5bxg-Xtgi5a9rc4Isl_O8e-qp_zx36I_pCQL5YOlllI8i_esrVP5mj5ywuWb9Hbb3lhhSZcnsFylv0kn9O3fSYpAAA&amp;cr=228996&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F131360%2Fsoftware-engineer-datadog%3Fmed=clc&amp;sig=vYCBwv_YeDOi1w"><div class="title">Software Engineer</div><div><span class="company">Datadog</span><span class="location">New York, NY</span></div><div class="opts"><span class="opt remote">Remote</span></div><span class="post-tag highlight">python</span><span class="post-tag">go</span><div></div></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=4zrmf2nSvV1XPFTfH_HzZGJimf7qoYjiM681Ad4KZtmMH_1uBxwPZOBi6NnAwNBgz8jIwDKb6fdjtlW9nK17BIDiKQcs9t-39OYPtmdkK6gsycjPm800fRL7toMcR5bxg-Xtgi5a9rc4Isl_O8e-qp_zx36I_pCQL5YOlllI8i_esrVP5mj5ywuWb9Hbb3lhhSZcnsFylv0kn9O3fSYpAAA&amp;cr=228996&amp;ct=-1&amp;sig=vUHcBlzof-_jAQ" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li></ul></div><img src="./python - Bar Chart with multiple labels - Stack Overflow_files/impression.gif" class="impression" style="display: none;"></div>
+        <script>
+window.clc_request = 'AnkPUJDeutQIAAAAABd1mAICAAAAAgAAAAAfAAAAfHB5dGhvbnxwYW5kYXN8bWF0cGxvdGxpYnxwbG90fAArOvqtS9OE30PR';;!function load(n){var u,r;try{if("function"!=typeof[].indexOf)return;if(!window.addEventListener)return;if(!n.allowed)return;if(!RegExp(n.allowed).test(location.hostname))return;var t=window,i=t.document,f=n.wv;if(i.hidden&&f)return void i.addEventListener("visibilitychange",function e(){i.hidden||(load(n),i.removeEventListener("visibilitychange",e))});if(t.clc=t.clc||{},t.clc.init=t.clc.init||[],n.autoload&&t.clc.init.push(function(n){return n.load()}),t.clc.options){for(u in t.clc.options)n[u]=t.clc.options[u];t.clc.options=n}else t.clc.options=n;r=i.createElement("script");r.async=!0;r.src=n.lib;i.body.appendChild(r)}catch(o){}}.call(null, {"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=15f527bc6c30","u":"https://clc.stackoverflow.com/markup.js","azw":true,"kt":2000,"tto":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"h":"clc.stackoverflow.com","autoload":true,"allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true});        </script>
+			
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/31803817?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/31803817/how-to-add-second-x-axis-at-the-bottom-of-the-first-one-in-matplotlib?noredirect=1&amp;lq=1" class="question-hyperlink">How to add second x-axis at the bottom of the first one in matplotlib.?</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/34248741?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/34248741/plotting-pandas-multiindex-bar-chart?noredirect=1&amp;lq=1" class="question-hyperlink">Plotting Pandas Multiindex Bar Chart</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/43788223?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/43788223/line-chart-in-matplotlib-with-a-double-axisstrings-on-the-axis?noredirect=1&amp;lq=1" class="question-hyperlink">Line chart in matplotlib with a double axis(strings on the axis)</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/13983498?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">3</div></a><a href="https://stackoverflow.com/questions/13983498/visually-separating-bar-chart-clusters-in-pandas?rq=1" class="question-hyperlink">Visually separating bar chart clusters in pandas</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/20548727?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">6</div></a><a href="https://stackoverflow.com/questions/20548727/how-to-determine-the-order-of-bars-in-a-matplotlib-bar-chart?rq=1" class="question-hyperlink">How to determine the order of bars in a matplotlib bar chart</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/20600006?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">7</div></a><a href="https://stackoverflow.com/questions/20600006/simple-customization-of-matplotlib-pandas-bar-chart-labels-ticks-etc?rq=1" class="question-hyperlink">Simple customization of matplotlib/pandas bar chart (labels, ticks, etc.)</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/22623324?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="https://stackoverflow.com/questions/22623324/plot-bar-graph-and-timeseries-plot-on-different-axis-using-pandas?rq=1" class="question-hyperlink">Plot bar graph and timeseries plot on different axis using pandas</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/27018570?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">3</div></a><a href="https://stackoverflow.com/questions/27018570/matplotlib-fill-missing-tic-labels?rq=1" class="question-hyperlink">Matplotlib Fill Missing Tic Labels</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/32005510?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">3</div></a><a href="https://stackoverflow.com/questions/32005510/plotting-bar-chart-colors-python?rq=1" class="question-hyperlink">Plotting bar chart -colors python</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/35248976?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">0</div></a><a href="https://stackoverflow.com/questions/35248976/pandas-plot-dataframe-as-multiple-bar-charts?rq=1" class="question-hyperlink">pandas plot dataframe as multiple bar charts</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/35371682?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="https://stackoverflow.com/questions/35371682/pandas-plot-stacked-bar-chart?rq=1" class="question-hyperlink">Pandas - Plot stacked bar chart</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/40805910?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">2</div></a><a href="https://stackoverflow.com/questions/40805910/pandas-multiple-histograms-of-categorical-data?rq=1" class="question-hyperlink">Pandas: multiple histograms of categorical data</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/43234435?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">2</div></a><a href="https://stackoverflow.com/questions/43234435/tick-label-text-and-frequency-in-matplotlib-plot?rq=1" class="question-hyperlink">Tick label text and frequency in matplotlib plot</a></div>
+                    </div>
+				</div>
+            
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2332922/explain-non-convergent-sums-to-a-bright-high-schooler" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Explain non-convergent sums to a bright high schooler.
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="https://ux.stackexchange.com/questions/109321/how-do-we-ensure-users-read-instructions" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do we ensure users read instructions?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="https://aviation.stackexchange.com/questions/39216/what-is-this-radar-like-thing" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is this radar-like thing?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-biology" title="Biology Stack Exchange"></div><a href="https://biology.stackexchange.com/questions/61020/why-does-it-hurt-the-next-day-after-doing-significant-exercise" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:375 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does it hurt the next day after doing significant exercise?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/272897/what-two-ordinals-are-these-based-on-definable-ordinals" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What two ordinals are these (based on definable ordinals)?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/128021/divinacci-sequence" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Divinacci Sequence
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/84217/is-there-a-reason-why-a-country-would-only-use-open-negotiations" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a reason why a country would only use open negotiations?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/95832/what-are-the-differences-between-terminals-and-gates" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What are the differences between terminals and gates?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/84231/how-could-i-justify-medieval-stasis" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How could I justify Medieval Stasis?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/133398/using-the-verb-fail-when-we-are-talking-about-the-exam-in-the-immediate-future" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Using the verb "fail" when we are talking about the exam in the immediate future
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/394789/whats-the-verb-to-describe-a-good-guy-becoming-a-bad-guy" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What's the verb to describe a good guy becoming a bad guy?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/395382/which-word-begins-with-y-and-looks-like-an-axe-in-this-picture" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Which word begins with "y" and looks like an axe in this picture?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2333383/double-integral-of-a-single-variable-function" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Double integral of a single variable function
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/93432/should-i-include-a-job-ive-been-fired-from-on-my-cv" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should I include a job I've been fired from on my CV
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/127839/swap-the-two-given-indices" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Swap the two given indices
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/91101/where-did-i-lose-control-of-my-studies" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Where did I lose control of my studies?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/372952/how-to-find-all-files-except-a-specified-file" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to find all files except a specified file
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/376555/latex-file-for-matrix" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Latex file for matrix
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-cs" title="Computer Science Stack Exchange"></div><a href="https://cs.stackexchange.com/questions/77135/why-is-adding-log-probabilities-faster-than-multiplying-probabilities" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:419 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    why is adding log probabilities faster than multiplying probabilities?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-outdoors" title="The Great Outdoors Stack Exchange"></div><a href="https://outdoors.stackexchange.com/questions/16367/how-does-water-depth-affect-swimming-safety-why-do-signs-especially-in-the-uk" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:395 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does water depth affect swimming safety? Why do signs, especially in the UK, say "DANGER: deep water"?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/91285/advisor-transferring-to-better-school" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Advisor transferring to better school
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/376468/recognize-this-letter" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Recognize this letter
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="https://space.stackexchange.com/questions/22045/why-cant-we-use-the-same-radiation-shielding-in-mars-that-we-used-when-going-to" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why can't we use the same radiation shielding in Mars that we used when going to the moon?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="https://gaming.stackexchange.com/questions/311657/how-do-i-review-my-store-preferences-for-the-steam-summer-sale-stickers-quest" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I review my "Store Preferences" for the Steam Summer Sale Stickers quest?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="https://stackoverflow.com/feeds/question/43545879" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/43545879/ivc/ab95');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/43545879/ivc/ab95" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-py</div></div>
+
+
+        </div>
+    </div>
+
+        <footer id="footer" class="s-footer categories" role="contentinfo">
+            <div class="-container g-column">
+                <ul class="-menu g-row">
+
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">about us</a></li>
+                        <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 2 })" href="https://stackoverflow.com/tour">tour</a></li>
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })" href="https://stackoverflow.com/help">help</a></li>
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 4 })" href="https://stackoverflow.blog/?blb=1">blog</a></li>
+                        <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 5 })" href="https://chat.stackoverflow.com/">chat</a></li>
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 6 })" href="https://data.stackexchange.com/">data</a></li>
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackexchange.com/legal">legal</a></li>
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackexchange.com/legal/privacy-policy">privacy policy</a></li>
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">work here</a></li>
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 10 })" href="https://www.stackoverflowbusiness.com/advertise">advertising info</a></li>
+                        <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11 })" href="https://stackoverflow.com/jobs/directory/developer-jobs">developer jobs directory</a></li>
+
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })" onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a></li>
+                    <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/contact"><strong>contact us</strong></a></li>
+                        <li class="-item g-col"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 14 })" href="https://meta.stackoverflow.com/"><strong>feedback</strong></a></li>
+                    <li class="-item g-col">
+                        
+                    </li>
+                </ul>
+                <div class="-toc g-row" id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                <strong>Technology</strong>
+            </th>
+            <th>
+                <strong>Life / Arts</strong>
+            </th>
+            <th>
+                <strong>Culture / Recreation</strong>
+            </th>
+            <th>
+                <strong>Science</strong>
+            </th>
+            <th>
+                <strong>Other</strong>
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="https://stackoverflow.com/" class="-link js-gps-track" title="professional and enthusiast programmers" data-gps-track="footer.click({ location: 2, link: 25 })">Stack Overflow</a></li>
+                        <li><a href="https://serverfault.com/" class="-link js-gps-track" title="system and network administrators" data-gps-track="footer.click({ location: 2, link: 25 })">Server Fault</a></li>
+                        <li><a href="https://superuser.com/" class="-link js-gps-track" title="computer enthusiasts and power users" data-gps-track="footer.click({ location: 2, link: 25 })">Super User</a></li>
+                        <li><a href="https://webapps.stackexchange.com/" class="-link js-gps-track" title="power users of web applications" data-gps-track="footer.click({ location: 2, link: 25 })">Web Applications</a></li>
+                        <li><a href="https://askubuntu.com/" class="-link js-gps-track" title="Ubuntu users and developers" data-gps-track="footer.click({ location: 2, link: 25 })">Ask Ubuntu</a></li>
+                        <li><a href="https://webmasters.stackexchange.com/" class="-link js-gps-track" title="pro webmasters" data-gps-track="footer.click({ location: 2, link: 25 })">Webmasters</a></li>
+                        <li><a href="https://gamedev.stackexchange.com/" class="-link js-gps-track" title="professional and independent game developers" data-gps-track="footer.click({ location: 2, link: 25 })">Game Development</a></li>
+                        <li><a href="https://tex.stackexchange.com/" class="-link js-gps-track" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems" data-gps-track="footer.click({ location: 2, link: 25 })">TeX - LaTeX</a></li>
+                        <li><a href="https://softwareengineering.stackexchange.com/" class="-link js-gps-track" title="professionals, academics, and students working within the systems development life cycle" data-gps-track="footer.click({ location: 2, link: 25 })">Software Engineering</a></li>
+                        <li><a href="https://unix.stackexchange.com/" class="-link js-gps-track" title="users of Linux, FreeBSD and other Un*x-like operating systems" data-gps-track="footer.click({ location: 2, link: 25 })">Unix &amp; Linux</a></li>
+                        <li><a href="https://apple.stackexchange.com/" class="-link js-gps-track" title="power users of Apple hardware and software" data-gps-track="footer.click({ location: 2, link: 25 })">Ask Different (Apple)</a></li>
+                        <li><a href="https://wordpress.stackexchange.com/" class="-link js-gps-track" title="WordPress developers and administrators" data-gps-track="footer.click({ location: 2, link: 25 })">WordPress Development</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="https://gis.stackexchange.com/" class="-link js-gps-track" title="cartographers, geographers and GIS professionals" data-gps-track="footer.click({ location: 2, link: 25 })">Geographic Information Systems</a></li>
+                        <li><a href="https://electronics.stackexchange.com/" class="-link js-gps-track" title="electronics and electrical engineering professionals, students, and enthusiasts" data-gps-track="footer.click({ location: 2, link: 25 })">Electrical Engineering</a></li>
+                        <li><a href="https://android.stackexchange.com/" class="-link js-gps-track" title="enthusiasts and power users of the Android operating system" data-gps-track="footer.click({ location: 2, link: 25 })">Android Enthusiasts</a></li>
+                        <li><a href="https://security.stackexchange.com/" class="-link js-gps-track" title="information security professionals" data-gps-track="footer.click({ location: 2, link: 25 })">Information Security</a></li>
+                        <li><a href="https://dba.stackexchange.com/" class="-link js-gps-track" title="database professionals who wish to improve their database skills and learn from others in the community" data-gps-track="footer.click({ location: 2, link: 25 })">Database Administrators</a></li>
+                        <li><a href="https://drupal.stackexchange.com/" class="-link js-gps-track" title="Drupal developers and administrators" data-gps-track="footer.click({ location: 2, link: 25 })">Drupal Answers</a></li>
+                        <li><a href="https://sharepoint.stackexchange.com/" class="-link js-gps-track" title="SharePoint enthusiasts" data-gps-track="footer.click({ location: 2, link: 25 })">SharePoint</a></li>
+                        <li><a href="https://ux.stackexchange.com/" class="-link js-gps-track" title="user experience researchers and experts" data-gps-track="footer.click({ location: 2, link: 25 })">User Experience</a></li>
+                        <li><a href="https://mathematica.stackexchange.com/" class="-link js-gps-track" title="users of Wolfram Mathematica" data-gps-track="footer.click({ location: 2, link: 25 })">Mathematica</a></li>
+                        <li><a href="https://salesforce.stackexchange.com/" class="-link js-gps-track" title="Salesforce administrators, implementation experts, developers and anybody in-between" data-gps-track="footer.click({ location: 2, link: 25 })">Salesforce</a></li>
+                        <li><a href="https://expressionengine.stackexchange.com/" class="-link js-gps-track" title="administrators, end users, developers and designers for ExpressionEngine® CMS" data-gps-track="footer.click({ location: 2, link: 25 })">ExpressionEngine® Answers</a></li>
+                        <li><a href="https://crypto.stackexchange.com/" class="-link js-gps-track" title="software developers, mathematicians and others interested in cryptography" data-gps-track="footer.click({ location: 2, link: 25 })">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="https://codereview.stackexchange.com/" class="-link js-gps-track" title="peer programmer code reviews" data-gps-track="footer.click({ location: 2, link: 25 })">Code Review</a></li>
+                        <li><a href="https://magento.stackexchange.com/" class="-link js-gps-track" title="users of the Magento e-Commerce platform" data-gps-track="footer.click({ location: 2, link: 25 })">Magento</a></li>
+                        <li><a href="https://dsp.stackexchange.com/" class="-link js-gps-track" title="practitioners of the art and science of signal, image and video processing" data-gps-track="footer.click({ location: 2, link: 25 })">Signal Processing</a></li>
+                        <li><a href="https://raspberrypi.stackexchange.com/" class="-link js-gps-track" title="users and developers of hardware and software for Raspberry Pi" data-gps-track="footer.click({ location: 2, link: 25 })">Raspberry Pi</a></li>
+                        <li><a href="https://codegolf.stackexchange.com/" class="-link js-gps-track" title="programming puzzle enthusiasts and code golfers" data-gps-track="footer.click({ location: 2, link: 25 })">Programming Puzzles &amp; Code Golf</a></li>
+                                            <li>
+                            <a href="https://stackexchange.com/sites#technology" class="more js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://photo.stackexchange.com/" class="-link js-gps-track" title="professional, enthusiast and amateur photographers" data-gps-track="footer.click({ location: 2, link: 25 })">Photography</a></li>
+                        <li><a href="https://scifi.stackexchange.com/" class="-link js-gps-track" title="science fiction and fantasy enthusiasts" data-gps-track="footer.click({ location: 2, link: 25 })">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="https://graphicdesign.stackexchange.com/" class="-link js-gps-track" title="Graphic Design professionals, students, and enthusiasts" data-gps-track="footer.click({ location: 2, link: 25 })">Graphic Design</a></li>
+                        <li><a href="https://movies.stackexchange.com/" class="-link js-gps-track" title="movie and tv enthusiasts" data-gps-track="footer.click({ location: 2, link: 25 })">Movies &amp; TV</a></li>
+                        <li><a href="https://music.stackexchange.com/" class="-link js-gps-track" title="musicians, students, and enthusiasts" data-gps-track="footer.click({ location: 2, link: 25 })">Music: Practice &amp; Theory</a></li>
+                        <li><a href="https://cooking.stackexchange.com/" class="-link js-gps-track" title="professional and amateur chefs" data-gps-track="footer.click({ location: 2, link: 25 })">Seasoned Advice (cooking)</a></li>
+                        <li><a href="https://diy.stackexchange.com/" class="-link js-gps-track" title="contractors and serious DIYers" data-gps-track="footer.click({ location: 2, link: 25 })">Home Improvement</a></li>
+                        <li><a href="https://money.stackexchange.com/" class="-link js-gps-track" title="people who want to be financially literate" data-gps-track="footer.click({ location: 2, link: 25 })">Personal Finance &amp; Money</a></li>
+                        <li><a href="https://academia.stackexchange.com/" class="-link js-gps-track" title="academics and those enrolled in higher education" data-gps-track="footer.click({ location: 2, link: 25 })">Academia</a></li>
+                                            <li>
+                            <a href="https://stackexchange.com/sites#lifearts" class="more js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://english.stackexchange.com/" class="-link js-gps-track" title="linguists, etymologists, and serious English language enthusiasts" data-gps-track="footer.click({ location: 2, link: 25 })">English Language &amp; Usage</a></li>
+                        <li><a href="https://skeptics.stackexchange.com/" class="-link js-gps-track" title="scientific skepticism" data-gps-track="footer.click({ location: 2, link: 25 })">Skeptics</a></li>
+                        <li><a href="https://judaism.stackexchange.com/" class="-link js-gps-track" title="those who base their lives on Jewish law and tradition and anyone interested in learning more" data-gps-track="footer.click({ location: 2, link: 25 })">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="https://travel.stackexchange.com/" class="-link js-gps-track" title="road warriors and seasoned travelers" data-gps-track="footer.click({ location: 2, link: 25 })">Travel</a></li>
+                        <li><a href="https://christianity.stackexchange.com/" class="-link js-gps-track" title="committed Christians, experts in Christianity and those interested in learning more" data-gps-track="footer.click({ location: 2, link: 25 })">Christianity</a></li>
+                        <li><a href="https://ell.stackexchange.com/" class="-link js-gps-track" title="speakers of other languages learning English" data-gps-track="footer.click({ location: 2, link: 25 })">English Language Learners</a></li>
+                        <li><a href="https://japanese.stackexchange.com/" class="-link js-gps-track" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language" data-gps-track="footer.click({ location: 2, link: 25 })">Japanese Language</a></li>
+                        <li><a href="https://gaming.stackexchange.com/" class="-link js-gps-track" title="passionate videogamers on all platforms" data-gps-track="footer.click({ location: 2, link: 25 })">Arqade (gaming)</a></li>
+                        <li><a href="https://bicycles.stackexchange.com/" class="-link js-gps-track" title="people who build and repair bicycles, people who train cycling, or commute on bicycles" data-gps-track="footer.click({ location: 2, link: 25 })">Bicycles</a></li>
+                        <li><a href="https://rpg.stackexchange.com/" class="-link js-gps-track" title="gamemasters and players of tabletop, paper-and-pencil role-playing games" data-gps-track="footer.click({ location: 2, link: 25 })">Role-playing Games</a></li>
+                        <li><a href="https://anime.stackexchange.com/" class="-link js-gps-track" title="anime and manga fans" data-gps-track="footer.click({ location: 2, link: 25 })">Anime &amp; Manga</a></li>
+                        <li><a href="https://mechanics.stackexchange.com/" class="-link js-gps-track" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles" data-gps-track="footer.click({ location: 2, link: 25 })">Motor Vehicle Maintenance &amp; Repair</a></li>
+                                            <li>
+                            <a href="https://stackexchange.com/sites#culturerecreation" class="more js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://mathoverflow.net/" class="-link js-gps-track" title="professional mathematicians" data-gps-track="footer.click({ location: 2, link: 25 })">MathOverflow</a></li>
+                        <li><a href="https://math.stackexchange.com/" class="-link js-gps-track" title="people studying math at any level and professionals in related fields" data-gps-track="footer.click({ location: 2, link: 25 })">Mathematics</a></li>
+                        <li><a href="https://stats.stackexchange.com/" class="-link js-gps-track" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization" data-gps-track="footer.click({ location: 2, link: 25 })">Cross Validated (stats)</a></li>
+                        <li><a href="https://cstheory.stackexchange.com/" class="-link js-gps-track" title="theoretical computer scientists and researchers in related fields" data-gps-track="footer.click({ location: 2, link: 25 })">Theoretical Computer Science</a></li>
+                        <li><a href="https://physics.stackexchange.com/" class="-link js-gps-track" title="active researchers, academics and students of physics" data-gps-track="footer.click({ location: 2, link: 25 })">Physics</a></li>
+                        <li><a href="https://chemistry.stackexchange.com/" class="-link js-gps-track" title="scientists, academics, teachers and students" data-gps-track="footer.click({ location: 2, link: 25 })">Chemistry</a></li>
+                        <li><a href="https://biology.stackexchange.com/" class="-link js-gps-track" title="biology researchers, academics, and students" data-gps-track="footer.click({ location: 2, link: 25 })">Biology</a></li>
+                        <li><a href="https://cs.stackexchange.com/" class="-link js-gps-track" title="students, researchers and practitioners of computer science" data-gps-track="footer.click({ location: 2, link: 25 })">Computer Science</a></li>
+                        <li><a href="https://philosophy.stackexchange.com/" class="-link js-gps-track" title="those interested in the study of the fundamental nature of knowledge, reality, and existence" data-gps-track="footer.click({ location: 2, link: 25 })">Philosophy</a></li>
+                                            <li>
+                            <a href="https://stackexchange.com/sites#science" class="more js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="https://meta.stackexchange.com/" class="-link js-gps-track" title="meta-discussion of the Stack Exchange family of Q&amp;A websites" data-gps-track="footer.click({ location: 2, link: 25 })">Meta Stack Exchange</a></li>
+                        <li><a href="https://stackapps.com/" class="-link js-gps-track" title="apps, scripts, and development with the Stack Exchange API" data-gps-track="footer.click({ location: 2, link: 25 })">Stack Apps</a></li>
+                        <li><a href="https://area51.stackexchange.com/" class="-link js-gps-track" title="proposing new sites in the Stack Exchange network" data-gps-track="footer.click({ location: 2, link: 25 })">Area 51</a></li>
+                        <li><a href="https://www.stackoverflowbusiness.com/talent" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })">Stack Overflow Talent</a></li>
+                                    </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+                <div class="g-col -copyright" id="copyright">
+                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a class="-link" href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                    with <a class="-link" href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>
+                </div>
+                <div class="g-col -copyright _muted" id="svnrev">
+                    rev 2017.6.23.26318
+                </div>
+
+            </div>
+        </footer>
+
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled
+            &lt;img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;
+        &lt;/div&gt;
+    </noscript>
+<script>var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script>
+var ados = ados || {};
+ados.run = ados.run || [];
+
+
+ados.run.push(function () {
+    setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+    ados_setKeywords('python,pandas,matplotlib,plot');; ados_load();
+});   
+
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', sampleRate: 5 });
+                ga('set', 'dimension2', '|python|pandas|matplotlib|plot|');
+                ga('pageData.set', 'dimension2', '|python|pandas|matplotlib|plot|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+
+<script async="" src="./python - Bar Chart with multiple labels - Stack Overflow_files/clc.min.js.download"></script></body></html>

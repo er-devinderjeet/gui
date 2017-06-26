@@ -1,7 +1,7 @@
 import datetime
 import numpy as np
 
-from backtest import Backtest
+from all_func.backtest import Backtest
 from all_func.eventdriven.data.HistoricalCSVDataHandler import HistoricalCSVDataHandler
 from all_func.eventdriven.events.SignalEvent import SignalEvent
 from all_func.eventdriven.execution.SimulatedExecutionHandler import SimulatedExecutionHandler

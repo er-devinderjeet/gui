@@ -45,9 +45,9 @@ def moving_average(data):
 	'''
 	return moving_average
 
-
+X = stock['close']
 def userDefined_Log_Data():
-	X = stock['close']
+
 	train_size = len(X) - 180
 	train_data, test_data = X[0:train_size], X[train_size:]
 	# rolmean = pd.Series(train_data).rolling(window=20).mean()
@@ -124,7 +124,7 @@ def userDefined_Log_Shift():
 	'''
 	#train_data_log = train_data_log_diff.dropna(inplace=True)
 	train_data_log_diff = train_data_log_diff.dropna()
-	#test_stationarity_2(train_data_log_diff)
+	test_stationarity_2(train_data_log_diff)
 	return train_data_log_diff
 
 #userDefined_Log_Shift()
@@ -197,4 +197,4 @@ def acf_N_pacf():
 	'''
 
 
-acf_N_pacf()
+#acf_N_pacf()

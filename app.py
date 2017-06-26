@@ -3,11 +3,12 @@ from __builtin__ import str
 
 from PyQt4 import QtCore, QtGui
 
+
 #from all_func.graph import  basicGraph
 from all_func.graph import ohlcGraph
 from ui.mainGui import Ui_mainWindow
 from widgetOLSWindow import widgetOLSWindow
-from all_func.OLSStartegy import *
+from all_func.strategy.OLSStartegy import *
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:

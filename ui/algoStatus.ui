@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>friend_algo_status</class>
+ <widget class="QWidget" name="friend_algo_status">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Friend - Algorithm Status</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>30</y>
+     <width>521</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>Stock Name</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Status</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Algorithm ID</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Graph</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Stop</string>
+    </property>
+   </column>
+   <item row="0" column="0">
+    <property name="text">
+     <string>ICICIBANK-EQ</string>
+    </property>
+   </item>
+   <item row="0" column="1">
+    <property name="text">
+     <string>Running</string>
+    </property>
+   </item>
+   <item row="0" column="2">
+    <property name="text">
+     <string>ARIMA Strategy</string>
+    </property>
+   </item>
+   <item row="0" column="3">
+    <property name="text">
+     <string/>
+    </property>
+   </item>
+   <item row="1" column="0">
+    <property name="text">
+     <string>SBIN-EQ</string>
+    </property>
+   </item>
+   <item row="1" column="1">
+    <property name="text">
+     <string>Running</string>
+    </property>
+   </item>
+   <item row="1" column="2">
+    <property name="text">
+     <string>OLS Strategy</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
