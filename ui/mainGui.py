@@ -29,21 +29,11 @@ class Ui_mainWindow(object):
         mainWindow.resize(681, 562)
         self.centralwidget = QtGui.QWidget(mainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
-
-        #model
-        #tree view
-        self.model = QtGui.QFileSystemModel(self.centralwidget)
-        self.model.setRootPath('C:\Zerodha\Pi\Exported')
         self.treeView = QtGui.QTreeView(self.centralwidget)
         self.treeView.setGeometry(QtCore.QRect(30, 90, 191, 411))
         self.treeView.setObjectName(_fromUtf8("treeView"))
-        self.treeView.setModel(self.model)
-        self.treeView.setRootIndex(self.model.index("C:\Zerodha\Pi\Exported"))
-        #end tree view
-
-
         self.layoutWidget = QtGui.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(30, 10, 591, 41))
+        self.layoutWidget.setGeometry(QtCore.QRect(30, 10, 461, 41))
         self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
         self.horizontalLayout = QtGui.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
@@ -66,16 +56,17 @@ class Ui_mainWindow(object):
         self.graphicsView.setGeometry(QtCore.QRect(250, 90, 401, 411))
         self.graphicsView.setObjectName(_fromUtf8("graphicsView"))
 
-        #backtest
-        self.backtestButton = QtGui.QPushButton(self.centralwidget)
-        self.backtestButton.setGeometry(QtCore.QRect(554, 60, 101, 23))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.backtestButton.setFont(font)
-        self.backtestButton.setObjectName(_fromUtf8("backtestButton"))
-        mainWindow.setCentralWidget(self.centralwidget)
+        self.backTestModeButton = QtGui.QPushButton(self.centralwidget)
 
-        #MEnu
+        self.backTestModeButton.setGeometry(QtCore.QRect(560, 0, 121, 31))
+
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.backTestModeButton.setFont(font)
+        self.backTestModeButton.setStyleSheet(_fromUtf8("background-color: rgb(255, 69, 94);"))
+        self.backTestModeButton.setObjectName(_fromUtf8("backTestModeButton"))
+
+        mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(mainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 681, 21))
         self.menubar.setObjectName(_fromUtf8("menubar"))
@@ -87,28 +78,40 @@ class Ui_mainWindow(object):
         self.menuChart.setObjectName(_fromUtf8("menuChart"))
         self.menuTechnical_Anaylsis = QtGui.QMenu(self.menubar)
         self.menuTechnical_Anaylsis.setObjectName(_fromUtf8("menuTechnical_Anaylsis"))
-
         mainWindow.setMenuBar(self.menubar)
-
+        self.actionCalculate_OLS = QtGui.QAction(mainWindow)
+        self.actionCalculate_OLS.setEnabled(False)
+        self.actionCalculate_OLS.setObjectName(_fromUtf8("actionCalculate_OLS"))
         self.actionQuit = QtGui.QAction(mainWindow)
         self.actionQuit.setEnabled(True)
         self.actionQuit.setObjectName(_fromUtf8("actionQuit"))
+        self.actionHello = QtGui.QAction(mainWindow)
+        self.actionHello.setObjectName(_fromUtf8("actionHello"))
         self.actionOLS_Tool = QtGui.QAction(mainWindow)
         self.actionOLS_Tool.setObjectName(_fromUtf8("actionOLS_Tool"))
-
+        self.actionOLS_Tool_2 = QtGui.QAction(mainWindow)
+        self.actionOLS_Tool_2.setObjectName(_fromUtf8("actionOLS_Tool_2"))
         self.actionCandleStick = QtGui.QAction(mainWindow)
         self.actionCandleStick.setObjectName(_fromUtf8("actionCandleStick"))
         self.actionLine = QtGui.QAction(mainWindow)
         self.actionLine.setObjectName(_fromUtf8("actionLine"))
+        self.actionLine_2 = QtGui.QAction(mainWindow)
+        self.actionLine_2.setObjectName(_fromUtf8("actionLine_2"))
+        self.actionCandleStick_2 = QtGui.QAction(mainWindow)
+        self.actionCandleStick_2.setObjectName(_fromUtf8("actionCandleStick_2"))
         self.actionRSI = QtGui.QAction(mainWindow)
         self.actionRSI.setObjectName(_fromUtf8("actionRSI"))
-
+        self.actionLine_3 = QtGui.QAction(mainWindow)
+        self.actionLine_3.setObjectName(_fromUtf8("actionLine_3"))
+        self.actionOLS_Tool_3 = QtGui.QAction(mainWindow)
+        self.actionOLS_Tool_3.setObjectName(_fromUtf8("actionOLS_Tool_3"))
+        self.actionCandleStick_3 = QtGui.QAction(mainWindow)
+        self.actionCandleStick_3.setObjectName(_fromUtf8("actionCandleStick_3"))
         self.menuFile.addAction(self.actionQuit)
-        self.menuPredict.addAction(self.actionOLS_Tool)
-        self.menuChart.addAction(self.actionLine)
-        self.menuChart.addAction(self.actionCandleStick)
+        self.menuPredict.addAction(self.actionOLS_Tool_3)
+        self.menuChart.addAction(self.actionLine_3)
+        self.menuChart.addAction(self.actionCandleStick_3)
         self.menuTechnical_Anaylsis.addAction(self.actionRSI)
-
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuChart.menuAction())
         self.menubar.addAction(self.menuTechnical_Anaylsis.menuAction())
@@ -122,14 +125,12 @@ class Ui_mainWindow(object):
         self.label.setText(_translate("mainWindow", "Enter Stock Name", None))
         self.enter.setText(_translate("mainWindow", "Enter", None))
         self.comboBox.setItemText(0, _translate("mainWindow", "Select Date", None))
-        self.comboBox.setItemText(1, _translate("mainWindow", "%d-%m-%Y %H:%M:%S", None))
-        self.comboBox.setItemText(2, _translate("mainWindow", "%d-%m-%Y %H:%M", None))
+        self.comboBox.setItemText(1, _translate("mainWindow", "d-m-Y H:M:S", None))
+        self.comboBox.setItemText(2, _translate("mainWindow", "d-m-Y H:M", None))
 
-        self.backtestButton.setText(_translate("mainWindow", "Backtest", None))
-        self.backtestButton.setStyleSheet("background-color: #FE3232")
+        self.backTestModeButton.setText(_translate("mainWindow", "BackTest Mode", None))
 
-
-        #menu
+         #menu
         self.menuFile.setTitle(_translate("mainWindow", "File", None))
         self.menuPredict.setTitle(_translate("mainWindow", "Predict", None))
         self.menuChart.setTitle(_translate("mainWindow", "Chart", None))

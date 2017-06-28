@@ -29,7 +29,7 @@ class Ui_mainWindow(object):
         mainWindow.resize(681, 562)
         self.centralwidget = QtGui.QWidget(mainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
-        #leftside-view
+
         #model
         #tree view
         self.model = QtGui.QFileSystemModel(self.centralwidget)
@@ -40,6 +40,7 @@ class Ui_mainWindow(object):
         self.treeView.setModel(self.model)
         self.treeView.setRootIndex(self.model.index("C:\Zerodha\Pi\Exported"))
         #end tree view
+
 
         self.layoutWidget = QtGui.QWidget(self.centralwidget)
         self.layoutWidget.setGeometry(QtCore.QRect(30, 10, 591, 41))
@@ -61,6 +62,17 @@ class Ui_mainWindow(object):
         self.comboBox.addItem(_fromUtf8(""))
         self.comboBox.addItem(_fromUtf8(""))
         self.comboBox.addItem(_fromUtf8(""))
+        self.graphicsView = QtGui.QGraphicsView(self.centralwidget)
+        self.graphicsView.setGeometry(QtCore.QRect(250, 90, 401, 411))
+        self.graphicsView.setObjectName(_fromUtf8("graphicsView"))
+
+        #backtest
+        self.backtestButton = QtGui.QPushButton(self.centralwidget)
+        self.backtestButton.setGeometry(QtCore.QRect(554, 60, 101, 23))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.backtestButton.setFont(font)
+        self.backtestButton.setObjectName(_fromUtf8("backtestButton"))
         mainWindow.setCentralWidget(self.centralwidget)
 
         #MEnu
@@ -113,6 +125,10 @@ class Ui_mainWindow(object):
         self.comboBox.setItemText(1, _translate("mainWindow", "%d-%m-%Y %H:%M:%S", None))
         self.comboBox.setItemText(2, _translate("mainWindow", "%d-%m-%Y %H:%M", None))
 
+        self.backtestButton.setText(_translate("mainWindow", "Backtest", None))
+        self.backtestButton.setStyleSheet("background-color: #FE3232")
+
+
         #menu
         self.menuFile.setTitle(_translate("mainWindow", "File", None))
         self.menuPredict.setTitle(_translate("mainWindow", "Predict", None))
@@ -138,3 +154,4 @@ if __name__ == "__main__":
     mainWindow.show()
     sys.exit(app.exec_())
 
+mai

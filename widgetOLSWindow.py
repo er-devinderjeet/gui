@@ -1,5 +1,5 @@
 __author__ = 'Devinderjeet'
-from all_func.stats import linearRegr
+from func.stats import linearRegr
 
 from ui.OLSWindow import Ui_MainWindow
 import sys, os, shutil, glob, time

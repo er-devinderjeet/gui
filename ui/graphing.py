@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'graphing.ui'
+# Form implementation generated from reading ui file 'graphing_1.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
-import pyqtgraph as pg
-from pyqtgraph import PlotWidget
+
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -23,39 +22,37 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName(_fromUtf8("Form"))
-        Form.resize(640, 480)
-        self.graphicsView = PlotWidget(Form)
-        self.graphicsView.setGeometry(QtCore.QRect(190, 80, 411, 341))
+class Ui_Graphing(object):
+    def setupUi(self, Graphing):
+        Graphing.setObjectName(_fromUtf8("Graphing"))
+        Graphing.resize(640, 480)
+        self.centralwidget = QtGui.QWidget(Graphing)
+        self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
+        self.graphicsView = QtGui.QGraphicsView(self.centralwidget)
+        self.graphicsView.setGeometry(QtCore.QRect(20, 20, 591, 411))
         self.graphicsView.setObjectName(_fromUtf8("graphicsView"))
+        Graphing.setCentralWidget(self.centralwidget)
+        self.menubar = QtGui.QMenuBar(Graphing)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 640, 21))
+        self.menubar.setObjectName(_fromUtf8("menubar"))
+        Graphing.setMenuBar(self.menubar)
+        self.statusbar = QtGui.QStatusBar(Graphing)
+        self.statusbar.setObjectName(_fromUtf8("statusbar"))
+        Graphing.setStatusBar(self.statusbar)
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(Graphing)
+        QtCore.QMetaObject.connectSlotsByName(Graphing)
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Form", "Form", None))
+    def retranslateUi(self, Graphing):
+        Graphing.setWindowTitle(_translate("Graphing", "Graphing", None))
+
 
 if __name__ == "__main__":
     import sys
     app = QtGui.QApplication(sys.argv)
-    ## Define a top-level widget to hold everything
-    w = QtGui.QWidget()
-    ## Create some widgets to be placed inside
-    btn = QtGui.QPushButton('press me')
-    text = QtGui.QLineEdit('enter text')
-    listw = QtGui.QListWidget()
-    plot = pg.PlotWidget()
-    ## Create a grid layout to manage the widgets size and position
-    layout = QtGui.QGridLayout()
-    w.setLayout(layout)
-    ## Add widgets to the layout in their proper positions
-    layout.addWidget(btn, 0, 0) # button goes in upper-left
-    layout.addWidget(text, 1, 0) # text edit goes in middle-left
-    layout.addWidget(listw, 2, 0) # list widget goes in bottom-left
-    layout.addWidget(plot, 0, 1, 3, 1) # plot goes on right side, spanning 3 rows
-    ## Display the widget as a new window
-    w.show()
-    ## Start the Qt event loop
-    app.exec_()
+    Graphing = QtGui.QMainWindow()
+    ui = Ui_Graphing()
+    ui.setupUi(Graphing)
+    Graphing.show()
+    sys.exit(app.exec_())
+
